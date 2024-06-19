@@ -1,167 +1,261 @@
 /* Global Styles */
 body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    color: #333;
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(120deg, #aaff00 0%, #8fd3f4 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* the Breaking of page is fixed */
+  min-height: 100vh;
+  height: 100%;
+  margin: 0;
+  color: #333;
+
+  position: relative;
+}
+
+/* Adding a colorful scrollbar. Test it by using multiple task history and see magic*/
+body::-webkit-scrollbar {
+  width: 1.2rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: linear-gradient(0deg, rgb(255, 72, 0) 0%, rgb(0, 183, 211) 100%);
+  border-radius: 99px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: transparent;
+  box-shadow: 0px 0px 0px 100000vh rgba(31, 28, 28, 0.84);
+  border-radius: 99px;
 }
 
 .container {
-    background: #fff;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 700px;
-    text-align: center;
-    overflow: hidden; /* Ensures container's content does not overflow */
-    overflow-y: auto; /* Enable vertical scrolling if content exceeds container height */
-    max-height: 80vh; /* Limit container height to 80% of viewport height */
+  background: #fff;
+  padding: 20px 20px 0 20px;
+  border-radius: 12px;
+  box-shadow: 15px 25px 18px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  /* Giving some space to breath */
+  margin-top: 25px;
+  margin-bottom: 25px;
+  overflow: hidden; /* Ensures container's content does not overflow */
+
+  /* removed the scrollbar which was inside the menu. it was weird */
+  .example::-webkit-scrollbar {
+    display: none;
+  }
 }
 
-h1, h2 {
-    margin: 0 0 20px;
-    font-weight: 700;
-    color: #222;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+h1,
+h2 {
+  margin: 0 0 10px;
+  font-weight: 700;
+  color: #222;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 36px;
 }
 
 #task-input {
-    padding: 15px;
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    width: 80%;
-    font-size: 16px;
-    outline: none;
-    transition: border-color 0.3s;
+  padding: 15px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  width: 80%;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
 }
 
 #task-input:focus {
-    border-color: #84fab0;
+  border-color: #84fab0;
 }
 
 form button {
-    padding: 15px;
-    margin-left: 10px;
-    border: none;
-    background: #28a745;
-    color: #fff;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-    font-size: 18px;
+  padding: 15px;
+  margin-left: 10px;
+  border: none;
+  background: #28a745;
+  color: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 18px;
 }
 
 form button:hover {
-    background: #218838;
+  background: #218838;
 }
 
 /* Table Styles */
 .table-container {
-    overflow-y: auto; /* Enable vertical scrolling for table content */
-    max-height: calc(100% - 150px); /* Adjust based on header and form height */
-    margin-bottom: 15px; /* Create spacing between tables */
+  overflow-y: auto; /* Enable vertical scrolling for table content */
+  max-height: calc(100% - 150px); /* Adjust based on header and form height */
+  margin-bottom: 15px; /* Create spacing between tables */
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  border-collapse: collapse;
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
 }
 
 thead th {
-    background: #e9ecef;
-    padding: 15px;
-    font-weight: bold;
-    text-align: left;
-    border-bottom: 2px solid #dee2e6;
-    color: #495057;
-    text-transform: uppercase;
-    font-size: 14px;
+  background: #e9ecef;
+  padding: 15px;
+  font-weight: bold;
+  width: 100px;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+  color: #495057;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 
+/* Adding extra class for future task td tr element */
+.table_property {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 2px solid #dee2e6;
+  color: #495057;
+}
+
+/*  */
 tbody tr {
-    border-bottom: 1px solid #dee2e6;
-    transition: background-color 0.3s;
+  border-bottom: 1px solid #dee2e6;
+  transition: background-color 0.3s;
 }
 
 tbody tr:hover {
-    background-color: #f1f3f5;
+  background-color: #f1f3f5;
 }
 
 tbody tr td {
-    padding: 15px;
-    font-size: 16px;
+  padding: 15px;
+  font-size: 16px;
 }
 
 td .task-complete-label {
-    display: inline-block;
-    cursor: pointer;
-    font-size: 16px;
-    color: #28a745;
-    font-weight: bold;
-    margin-right: 10px;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 16px;
+  color: #28a745;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 td .task-complete {
-    margin-right: 5px;
-    accent-color: #28a745;
-    transform: scale(1.5);
+  margin-right: 5px;
+  accent-color: #28a745;
+  transform: scale(1.5);
 }
 
 td .remove-task {
-    background: none;
-    border: none;
-    color: #dc3545;
-    cursor: pointer;
-    font-size: 18px;
-    transition: color 0.3s;
+  background: none;
+  border: none;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 18px;
+  transition: color 0.3s;
 }
 
 td .remove-task:hover {
-    color: #c82333;
+  color: #c82333;
+}
+
+/* clear log Button style */
+#Empty_Log {
+  /* you can change the color */
+  background-color: #8df220;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset, rgba(44, 187, 99, 0.15) 0 1px 2px,
+    rgba(44, 187, 99, 0.15) 0 2px 4px;
+  color: rgb(5, 101, 5);
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px 16px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 500ms;
+  border: 0;
+  font-size: 14px;
+
+  position: absolute;
+  right: 0;
+  top: 5px;
+}
+
+#Empty_Log:hover {
+  background-color: #0ccd0f;
+  box-shadow: rgba(44, 187, 99, 0.35) 0 -25px 18px -14px inset, rgba(44, 187, 99, 0.25) 0 1px 2px,
+    rgba(44, 187, 99, 0.25) 0 2px 4px;
+}
+
+/* Clear all Button */
+#clearAll {
+  /* you can change the color */
+  background-color: #e83f24;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, 0.2) 0 -25px 18px -14px inset, rgba(44, 187, 99, 0.15) 0 1px 2px,
+    rgba(44, 187, 99, 0.15) 0 2px 4px;
+  color: rgb(247, 247, 247);
+  cursor: pointer;
+  display: inline-block;
+  padding: 6px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 500ms;
+  border: 0;
+  font-size: 16px;
+
+  transform: translate(-300px, -8px);
+}
+
+#clearAll:hover {
+  background-color: #ad2f15;
+  box-shadow: rgba(230, 11, 110, 0.35) 0 -25px 18px -14px inset, rgba(216, 13, 114, 0.25) 0 1px 2px,
+    rgba(216, 196, 10, 0.25) 0 2px 4px;
+  /* transform: scale(1.05) rotate(-1deg); */
 }
 
 /* Responsive Styles */
 @media (max-width: 600px) {
-    .container {
-        padding: 15px;
-    }
+  .container {
+    padding: 15px;
+  }
 
-    #task-input {
-        width: 60%;
-    }
+  #task-input {
+    width: 60%;
+  }
 
-    form button {
-        padding: 10px;
-    }
+  form button {
+    padding: 10px;
+  }
 
-    table {
-        font-size: 14px;
-    }
+  table {
+    font-size: 14px;
+  }
 
-    tbody tr td {
-        padding: 10px;
-    }
+  tbody tr td {
+    padding: 10px;
+  }
 
-    td .task-complete-label {
-        font-size: 14px;
-    }
+  td .task-complete-label {
+    font-size: 14px;
+  }
 
-    td .remove-task {
-        font-size: 16px;
-    }
+  td .remove-task {
+    font-size: 16px;
+  }
 }
